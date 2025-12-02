@@ -1,0 +1,140 @@
+network:
+  openunison_host: "k8sou.192-168-2-117.nip.io"
+  dashboard_host: "k8sdb.192-168-2-117.nip.io"
+  api_server_host: "k8sapi.192-168-2-117-nip.io"
+  session_inactivity_timeout_seconds: 900
+  k8s_url: https://192.168.2.130:6443
+  force_redirect_to_tls: false
+  createIngressCertificate: true
+  ingress_type: nginx
+  ingress_annotations: {}
+
+cert_template:
+  ou: "Kubernetes"
+  o: "MyOrg"
+  l: "My Cluster"
+  st: "State of Cluster"
+  c: "MyCountry"
+
+
+
+myvd_config_path: "WEB-INF/myvd.conf"
+k8s_cluster_name: openunison-cp
+enable_impersonation: true
+
+impersonation:
+  use_jetstack: true
+  explicit_certificate_trust: true
+
+dashboard:
+  namespace: "kubernetes-dashboard"
+  cert_name: "kubernetes-dashboard-certs"
+  label: "k8s-app=kubernetes-dashboard"
+  service_name: kubernetes-dashboard
+  new: true
+
+certs:
+  use_k8s_cm: false
+
+trusted_certs:
+- name: ldaps
+  pem_b64: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUdlakNDQldLZ0F3SUJBZ0lUSkFBQUFBblJQMm1yV21XR0xnQUFBQUFBQ1RBTkJna3Foa2lHOXcwQkFRc0YKQURCak1STXdFUVlLQ1pJbWlaUHlMR1FCR1JZRFpHVjJNUmN3RlFZS0NaSW1pWlB5TEdRQkdSWUhkSEpsYlc5cwpiekVYTUJVR0NnbVNKb21UOGl4a0FSa1dCMlZ1ZERKck1qSXhHakFZQmdOVkJBTVRFV1Z1ZERKck1qSXRRVVJHClUwUkRMVU5CTUI0WERUSTFNRFl3TmpFMU5EY3pNRm9YRFRJMk1EWXdOakUxTkRjek1Gb3dKVEVqTUNFR0ExVUUKQXhNYVlXUm1jMlJqTG1WdWRESnJNakl1ZEhKbGJXOXNieTVrWlhZd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQQpBNElCRHdBd2dnRUtBb0lCQVFDbGFMSVFRa084ejZUUDFsY2MxNW04M1djUlJpV05rUDdDMkt0VGZmN0hTSU1SClBPam9raDZEd2JyUDA1WEtRNVcyTVF3dVhwKzg0VlhQaXhycWxtMkVjK05GRm01Yi9ncVRTMllwaGt1a3JrSFEKemRHR3BvTFJKUEFEUS9XdmNLSFRCUmp6Q05QYVFmZ1JZanBUWUoxcnI1NS9zTmNKZndlZU11RVpxV2JRQUZXSQp0WVVjZWhDSVJqODJQMW1LRGJ0bFg3K2gzbUt4ZlY0Q3dlY3VwelZVMDIwZ21BekVyOHZjeHAxMVlFSVRESmd3Ckl2NWNHdWRibFRkRkxmckxFZ1ZnaEZ5N2lyd2ZQQURzRDg3cVBXUktnM2ZkVWhBWC9KZjZOeG5yQ0ltTGNzUEQKNlVPeTRPMU9zZTFhaEZNQnc4NENFYUJ1R28zQ2h5bWdtVWR0SU9WUkFnTUJBQUdqZ2dOak1JSURYekF2QmdrcgpCZ0VFQVlJM0ZBSUVJaDRnQUVRQWJ3QnRBR0VBYVFCdUFFTUFid0J1QUhRQWNnQnZBR3dBYkFCbEFISXdIUVlEClZSMGxCQll3RkFZSUt3WUJCUVVIQXdJR0NDc0dBUVVGQndNQk1BNEdBMVVkRHdFQi93UUVBd0lGb0RCNEJna3EKaGtpRzl3MEJDUThFYXpCcE1BNEdDQ3FHU0liM0RRTUNBZ0lBZ0RBT0JnZ3Foa2lHOXcwREJBSUNBSUF3Q3dZSgpZSVpJQVdVREJBRXFNQXNHQ1dDR1NBRmxBd1FCTFRBTEJnbGdoa2dCWlFNRUFRSXdDd1lKWUlaSUFXVURCQUVGCk1BY0dCU3NPQXdJSE1Bb0dDQ3FHU0liM0RRTUhNRTRHQ1NzR0FRUUJnamNaQWdSQk1EK2dQUVlLS3dZQkJBR0MKTnhrQ0FhQXZCQzFUTFRFdE5TMHlNUzB4TWpJMk9ESXhNREV5TFRnd05USTRPVEUwTkMweU9URXpNekkwT1RRdwpMVEV3TURBd1JnWURWUjBSQkQ4d1BhQWZCZ2tyQmdFRUFZSTNHUUdnRWdRUVlTRkl6WmxEQ0VTVW8rdVBFdXVHCjhZSWFZV1JtYzJSakxtVnVkREpyTWpJdWRISmxiVzlzYnk1a1pYWXdIUVlEVlIwT0JCWUVGSVBJWXhBRHZicEwKNWRraEsxMnY0d0RqUlhqeE1COEdBMVVkSXdRWU1CYUFGSzFaMnNYZk0vdWlNbWJMMjRaWWxQRVZnUW1STUlIWgpCZ05WSFI4RWdkRXdnYzR3Z2N1Z2djaWdnY1dHZ2NKc1pHRndPaTh2TDBOT1BXVnVkREpyTWpJdFFVUkdVMFJECkxVTkJMRU5PUFdGa1puTmtZeXhEVGoxRFJGQXNRMDQ5VUhWaWJHbGpKVEl3UzJWNUpUSXdVMlZ5ZG1salpYTXMKUTA0OVUyVnlkbWxqWlhNc1EwNDlRMjl1Wm1sbmRYSmhkR2x2Yml4RVF6MWxiblF5YXpJeUxFUkRQWFJ5WlcxdgpiRzhzUkVNOVpHVjJQMk5sY25ScFptbGpZWFJsVW1WMmIyTmhkR2x2Ymt4cGMzUS9ZbUZ6WlQ5dlltcGxZM1JECmJHRnpjejFqVWt4RWFYTjBjbWxpZFhScGIyNVFiMmx1ZERDQnpnWUlLd1lCQlFVSEFRRUVnY0V3Z2I0d2dic0cKQ0NzR0FRVUZCekFDaG9HdWJHUmhjRG92THk5RFRqMWxiblF5YXpJeUxVRkVSbE5FUXkxRFFTeERUajFCU1VFcwpRMDQ5VUhWaWJHbGpKVEl3UzJWNUpUSXdVMlZ5ZG1salpYTXNRMDQ5VTJWeWRtbGpaWE1zUTA0OVEyOXVabWxuCmRYSmhkR2x2Yml4RVF6MWxiblF5YXpJeUxFUkRQWFJ5WlcxdmJHOHNSRU05WkdWMlAyTkJRMlZ5ZEdsbWFXTmgKZEdVL1ltRnpaVDl2WW1wbFkzUkRiR0Z6Y3oxalpYSjBhV1pwWTJGMGFXOXVRWFYwYUc5eWFYUjVNQTBHQ1NxRwpTSWIzRFFFQkN3VUFBNElCQVFCU2tUdWRvdmNGcHFDZjJnYVNnWmo5eEY2NVBrZzhiTlRxMS9GaTY5d29TMnZpCmcvOFdkVURJdXZhWjlFMHRqTE41WUJpa0RmTzJQcm05ek1oTEFYaCtlOVBkVEorYVVHRFN5TUNERWtNVXJmVk8KNnRKMlVnSEZnUXhiaUNkNWgxNWRDcVd2NlY2RERpWFYzTEJ3cjZmQWlRNDNOTURkYWFEbEpXWWMxT2VQWE5mMQp6MWpVK3FvMi9QalE0WXU1UkszcjJnSFVRc1NYK3pzMlBkUG5FN0sxemZGUmQzb1IyejRveUJ6b20wZWZEdDVpCnRzTHBGajNTclduME9CN1lEMWZIZU1WT3RTcXpoRTJYMUYrcERvUGo4REF6R2h3d0FwYm1pUG51cUZ5ZUhUb2oKNTJmY3dHc2NJalY5T2VvcGlDWFNvTi9hRkVXY3BQYXErblNzSk44bgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t
+
+
+monitoring:
+  prometheus_service_account: system:serviceaccount:monitoring:prometheus-k8s
+
+# Uncomment one of the below options for authentication
+
+active_directory:
+ base: cn=users,dc=ent2k22,dc=tremolo,dc=dev
+ host: "192.168.2.141"
+ port: "636"
+ bind_dn: "cn=Administrator,cn=users,dc=ent2k22,dc=tremolo,dc=dev"
+ con_type: ldaps
+ srv_dns: "false"
+
+#oidc:
+#  client_id: xxxxxx
+#  issuer: https://xxxxxx.okta.com/
+#  user_in_idtoken: false
+#  domain: ""
+#  scopes: openid email profile groups
+#  claims:
+#    sub: sub
+#    email: email
+#    given_name: given_name
+#    family_name: family_name
+#    display_name: name
+#    groups: groups
+
+#github:
+#  client_id: d85d77c55a08c9bcbb15
+#  teams: TremoloSecurity/
+
+#saml:
+#  idp_url: "https://portal.apps.tremolo.io/idp-test/metadata/dfbe4040-cd32-470e-a9b6-809c8f857c40"
+
+
+  
+
+network_policies:
+  enabled: false
+  ingress:
+    enabled: true
+    labels:
+      app.kubernetes.io/name: ingress-nginx
+  monitoring:
+    enabled: true
+    labels:
+      app.kubernetes.io/name: monitoring
+  apiserver:
+    enabled: false
+    labels:
+      app.kubernetes.io/name: kube-system
+
+services:
+  enable_tokenrequest: false
+  token_request_audience: api
+  token_request_expiration_seconds: 600
+  node_selectors: []
+  
+openunison:
+  auto_timestamp: false
+  force_update: initial-install
+  replicas: 1
+  non_secret_data:
+    K8S_DB_SSO: oidc
+    PROMETHEUS_SERVICE_ACCOUNT: system:serviceaccount:monitoring:prometheus-k8s
+    SHOW_PORTAL_ORGS: "false"
+  secrets: []
+  enable_provisioning: false
+  use_standard_jit_workflow: true
+  # enable_activemq: true
+  # activemq_use_pvc: true
+  # role_attribute: portalGroups
+  # groups:
+  #   areJson: "true"
+  #az_groups:
+  #- CN=k8s-users,CN=Users,DC=ent2k12,DC=domain,DC=com
+
+#myvd_configmap: myvdconfig
+
+# For Namespace as a Service
+
+# database:
+#   hibernate_dialect: org.hibernate.dialect.MariaDBDialect
+#   quartz_dialect: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#   driver: org.mariadb.jdbc.Driver
+#   url: jdbc:mariadb://mariadb.mariadb.svc.cluster.local:3306/unison
+#   user: unison
+#   validation: SELECT 1
+#   maxcons: 10
+#   maxidlecons: 10
+
+#smtp:
+#  host: blackhole.blackhole.svc.cluster.local
+#  port: 1025
+#  user: "none"
+#  from: donotreply@domain.com
+#  tls: false
