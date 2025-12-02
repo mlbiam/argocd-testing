@@ -101,7 +101,7 @@ services:
   
 openunison:
   auto_timestamp: false
-  force_update: initial-install
+  force_update: force-redeploy
   replicas: 1
   non_secret_data:
     K8S_DB_SSO: oidc
